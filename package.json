@@ -1,5 +1,68 @@
 {
+  "name": "zyx-webauthn-example",
+  "version": "0.0.1",
+  "description": "Express web app using zyx-webauthn",
+  "main": "index.js",
   "dependencies": {
-    "express-handlebars": "^8.0.1"
-  }
+    "ansi-regex": "^6.2.0",
+    "ansi-styles": "^6.2.1",
+    "color-convert": "^2.0.1",
+    "color-name": "^1.1.4",
+    "cross-spawn": "^7.0.6",
+    "eastasianwidth": "^0.2.0",
+    "emoji-regex": "^9.2.2",
+    "express-handlebars": "^8.0.1",
+    "foreground-child": "^3.3.1",
+    "glob": "^11.0.3",
+    "graceful-fs": "^4.2.11",
+    "handlebars": "^4.7.8",
+    "is-fullwidth-code-point": "^3.0.0",
+    "isexe": "^2.0.0",
+    "jackspeak": "^4.1.1",
+    "link": "^2.1.1",
+    "lru-cache": "^11.2.1",
+    "minimatch": "^10.0.3",
+    "minimist": "^1.2.8",
+    "minipass": "^7.1.2",
+    "neo-async": "^2.6.2",
+    "npm": "^10.8.2",
+    "package-json-from-dist": "^1.0.1",
+    "path-key": "^3.1.1",
+    "path-scurry": "^2.0.0",
+    "shebang-command": "^2.0.0",
+    "shebang-regex": "^3.0.0",
+    "signal-exit": "^4.1.0",
+    "source-map": "^0.6.1",
+    "string-width": "^5.1.2",
+    "string-width-cjs": "^4.2.3",
+    "strip-ansi": "^7.1.0",
+    "strip-ansi-cjs": "^6.0.1",
+    "uglify-js": "^3.19.3",
+    "which": "^2.0.2",
+    "wordwrap": "^1.0.0",
+    "wrap-ansi": "^8.1.0",
+    "wrap-ansi-cjs": "^7.0.0",
+    "zyx-webauthn": "^0.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miketerry-org/zyx-webauthn-example.git"
+  },
+  "keywords": [
+    "example",
+    "webauthn",
+    "simplewebauthn",
+    "express",
+    "handlebars"
+  ],
+  "author": "Mike Terry",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/miketerry-org/zyx-webauthn-example/issues"
+  },
+  "homepage": "https://github.com/miketerry-org/zyx-webauthn-example#readme"
 }
