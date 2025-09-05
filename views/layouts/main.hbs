@@ -1,0 +1,17 @@
+<!-- views/layouts/main.hbs -->
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Passkeys Auth</title>
+    <!-- Include the UMD bundle of @simplewebauthn/browser -->
+    <script
+      src="https://unpkg.com/@simplewebauthn/browser/dist/bundle/index.umd.min.js"
+    ></script>
+    <!-- Include your custom webauthn.js script -->
+    <script type="module" src="/js/webauthn.js"></script>
+  </head>
+  <body>
+    {{{body}}}
+  </body>
+</html>
