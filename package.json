@@ -4,6 +4,8 @@
   "description": "Express web app using zyx-webauthn",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,6 +26,7 @@
   },
   "homepage": "https://github.com/miketerry-org/zyx-webauthn-example#readme",
   "dependencies": {
+    "cookie-session": "^2.1.1",
     "express": "^5.1.0",
     "express-handlebars": "^8.0.1",
     "express-session": "^1.18.2"
