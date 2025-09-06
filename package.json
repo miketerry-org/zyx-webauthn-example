@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/miketerry-org/zyx-webauthn-example#readme",
   "dependencies": {
+    "@simplewebauthn/server": "^13.1.2",
     "cookie-session": "^2.1.1",
     "express": "^5.1.0",
     "express-handlebars": "^8.0.1",

@@ -1,14 +1,17 @@
-// index.js
-
 const path = require("path");
 const express = require("express");
 const { engine: hbsEngine } = require("express-handlebars");
 const cookieSession = require("cookie-session");
 
+const {
+  handleRegistrationOptions,
+  handleRegistrationVerification,
+} = require("./utils");
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// 1. Configure Handlebars to use `.hbs` extension
+// View engine setup
 app.engine(
   ".hbs",
   hbsEngine({
@@ -21,67 +24,63 @@ app.engine(
 app.set("view engine", ".hbs");
 app.set("views", path.join(__dirname, "views"));
 
-// 2. Serve static files from `public/`
+// Static files
 app.use(express.static(path.join(__dirname, "public")));
 
-// 3. Body parsing middleware
-app.use(express.json());
+// Parsers
+app.use(express.json({ limit: "1mb" }));
 app.use(express.urlencoded({ extended: true }));
 
-// 4. Cookie-based session configuration
+// Session
 app.use(
   cookieSession({
     name: "session",
     keys: [process.env.SESSION_SECRET || "change_this_phrase"],
-    maxAge: 24 * 60 * 60 * 1000, // 24 hours
+    maxAge: 24 * 60 * 60 * 1000,
   })
 );
 
-// 5. Expose session to templates
+// Session to views
 app.use((req, res, next) => {
   res.locals.session = req.session;
   next();
 });
 
-// 6. Route stubs for WebAuthn workflows
+// Routes
 app.get("/", (req, res) => {
   res.render("home", { message: "Welcome to the WebAuthn demo app" });
 });
 
-app.get("/webauthn/register", (req, res) => {
-  res.send("GET /webauthn/register — registration initiation (placeholder)");
+app.get("/register", (req, res) => {
+  console.log("➡️ GET /register");
+  res.render("register");
 });
 
-app.post("/webauthn/register", (req, res) => {
+app.post("/register/options", handleRegistrationOptions);
+app.post("/register", handleRegistrationVerification);
+
+// Auth placeholders
+app.get("/authenticate", (req, res) => {
+  res.send("GET /authenticate — authentication initiation (placeholder)");
+});
+app.post("/authenticate", (req, res) => {
   res.send(
-    "POST /webauthn/register — process registration response (placeholder)"
+    "POST /authenticate — process authentication response (placeholder)"
   );
 });
 
-app.get("/webauthn/authenticate", (req, res) => {
-  res.send(
-    "GET /webauthn/authenticate — authentication initiation (placeholder)"
-  );
-});
-
-app.post("/webauthn/authenticate", (req, res) => {
-  res.send(
-    "POST /webauthn/authenticate — process authentication response (placeholder)"
-  );
-});
-
-// 404 handler
+// 404
 app.use((req, res) => {
   res.status(404).send("Not Found");
 });
 
 // Error handler
 app.use((err, req, res, next) => {
-  console.error(err);
+  console.error("❌ Server error:", err);
   res.status(500).send("Something went wrong");
 });
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
